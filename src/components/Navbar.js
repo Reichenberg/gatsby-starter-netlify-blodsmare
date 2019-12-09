@@ -1,6 +1,32 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import posed, { PoseGroup } from "react-pose";
+
+const HeadingPosed = posed.h1({
+  enter: {
+    opacity: 1,
+    delay: 100,
+    transition: {
+      duration: 600
+    }
+  },
+  exit: {
+    opacity: 0
+  }
+});
+const ListPosed = posed.ul({
+  enter: {
+    opacity: 1,
+    delay: 300,
+    transition: {
+      duration: 600
+    }
+  },
+  exit: {
+    opacity: 0
+  }
+});
 
 const HeaderStyled = styled.header`
   width: 100vw;
@@ -10,7 +36,7 @@ const HeaderStyled = styled.header`
   align-items: center;
   padding-top: 90px;
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1000px) {
     padding-top: 140px;
   }
 
@@ -86,18 +112,21 @@ const HeaderStyled = styled.header`
 export default function Navbar() {
   return (
     <HeaderStyled>
-      <h1>BLODSMARE</h1>
-      <ul>
-        <li>
-          <Link to="/ink">ink</Link>
-        </li>
-        <li>
-          <Link to="/illustrations">illustrations</Link>
-        </li>
-        <li>
-          <Link to="/contact">contact</Link>
-        </li>
-      </ul>
+      <PoseGroup animateOnMount>
+        <HeadingPosed key={0}>BLODSMARE</HeadingPosed>
+
+        <ListPosed key={1}>
+          <li>
+            <Link to="/ink">ink</Link>
+          </li>
+          <li>
+            <Link to="/illustrations">illustrations</Link>
+          </li>
+          <li>
+            <Link to="/contact">contact</Link>
+          </li>
+        </ListPosed>
+      </PoseGroup>
     </HeaderStyled>
   );
 }
