@@ -15,7 +15,7 @@ collections:
   - label: "Gallery"
     name: "galleryImages"
     widget: "list"
-    folder: "/src/cmsData/gallery.md"
+    folder: "/src/cmsData/"
     fields:
       - { label: Image, name: image, widget: image }
       - { label: Alternate Text, name: altText, widget: string }
