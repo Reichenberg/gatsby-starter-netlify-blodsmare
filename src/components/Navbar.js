@@ -1,98 +1,60 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
+const HeaderStyled = styled.header`
+  width: 100vw;
+  background-color: #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  h1 {
+    font-family: big-caslon-fb, serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+    font-size: 28px;
+    color: #3f464a;
+  }
+
+  ul {
+    font-family: montserrat-alternates, sans-serif;
+
+    font-weight: 200;
+
+    font-style: normal;
+
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+
+    a {
+      text-decoration: none;
+      color: #3f464a;
+      padding: 5px;
+      display: block;
     }
   }
+`;
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
-  }
-
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    )
-  }
+export default function Navbar() {
+  return (
+    <HeaderStyled>
+      <h1>BLODSMARE</h1>
+      <ul>
+        <li>
+          <Link to="/ink">ink</Link>
+        </li>
+        <li>
+          <Link to="/illustrations">illustrations</Link>
+        </li>
+        <li>
+          <Link to="/contact">contact</Link>
+        </li>
+      </ul>
+    </HeaderStyled>
+  );
 }
-
-export default Navbar
