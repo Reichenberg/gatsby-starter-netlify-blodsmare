@@ -5,11 +5,14 @@ import Navbar from "../components/Navbar";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import GlobalStyles from "../components/global/global-styles";
+import styled from "styled-components";
+
+const LayoutStyled = styled.div``;
 
 const TemplateWrapper = ({ children, path }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <LayoutStyled>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -56,7 +59,7 @@ const TemplateWrapper = ({ children, path }) => {
       <div>{children}</div>
       <Footer />
       <GlobalStyles></GlobalStyles>
-    </div>
+    </LayoutStyled>
   );
 };
 

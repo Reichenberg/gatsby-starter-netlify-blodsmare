@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import posed, { PoseGroup } from "react-pose";
 
-const HeadingPosed = posed.h1({
+const HeadingPosed = posed(Link)({
   enter: {
     opacity: 1,
     delay: 100,
@@ -71,11 +71,6 @@ const HeaderStyled = styled.header`
   }
 
   ul {
-    font-family: montserrat-alternates, sans-serif;
-
-    font-weight: 200;
-
-    font-style: normal;
     font-size: 16px;
 
     list-style-type: none;
@@ -111,8 +106,8 @@ export default function Navbar({ path }) {
   return (
     <HeaderStyled>
       <PoseGroup animateOnMount>
-        <HeadingPosed key={0}>
-          <Link to="/">BLODSMARE</Link>
+        <HeadingPosed key={0} to="/">
+          <h1>BLODSMARE</h1>
         </HeadingPosed>
 
         <ListPosed key={1}>

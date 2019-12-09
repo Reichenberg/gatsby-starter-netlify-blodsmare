@@ -12,18 +12,16 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
-        fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "index-page",
-            }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
+  - label: "Gallery"
+    name: "galleryImages"
+    widget: "list"
+    folder: "/src/cmsData/gallery.md"
+    fields:
+      - { label: Image, name: image, widget: image }
+      - { label: Alternate Text, name: altText, widget: string }
+      - {
+          label: Image Type,
+          name: type,
+          widget: select,
+          options: ["illustration", "ink"],
+        }
