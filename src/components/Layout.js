@@ -6,7 +6,7 @@ import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import GlobalStyles from "../components/global/global-styles";
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, path }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div>
@@ -52,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
           href="https://use.typekit.net/daa5gtp.css"
         ></link>
       </Helmet>
-      <Navbar />
+      <Navbar path={path} />
       <div>{children}</div>
       <Footer />
       <GlobalStyles></GlobalStyles>

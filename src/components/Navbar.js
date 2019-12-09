@@ -101,19 +101,19 @@ const HeaderStyled = styled.header`
     }
 
     a {
-      text-decoration: none;
-      color: #3f464a;
       padding: 5px;
       display: block;
     }
   }
 `;
 
-export default function Navbar() {
+export default function Navbar({ path }) {
   return (
     <HeaderStyled>
       <PoseGroup animateOnMount>
-        <HeadingPosed key={0}>BLODSMARE</HeadingPosed>
+        <HeadingPosed key={0}>
+          <Link to="/">BLODSMARE</Link>
+        </HeadingPosed>
 
         <ListPosed key={1}>
           <li>
