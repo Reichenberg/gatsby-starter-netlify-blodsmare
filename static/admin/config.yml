@@ -12,20 +12,17 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "gallery"
-    label: "gallery"
+  - label: "Gallery"
+    name: "galleryImages"
+    widget: "list"
     folder: "src/galleryData/images"
     create: true
     fields:
-      - label: "Gallery"
-        name: "galleryImages"
-        widget: "list"
-        fields:
-      - { label: Image, name: image, widget: image }
-      - { label: Alternate Text, name: altText, widget: string }
-      - {
-          label: Image Type,
-          name: type,
-          widget: select,
-          options: ["illustration", "ink"],
-        }
+  - { label: Image, name: image, widget: image }
+  - { label: Alternate Text, name: altText, widget: string }
+  - {
+      label: Image Type,
+      name: type,
+      widget: select,
+      options: ["illustration", "ink"],
+    }
