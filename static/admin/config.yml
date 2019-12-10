@@ -16,7 +16,7 @@ collections:
     name: "galleryImages"
     widget: "list"
     folder: "src/galleryData/images"
-    create: true,
+    create: true
     identifier_field: name
     fields: [
     { label: Title, name: title, widget: string},
