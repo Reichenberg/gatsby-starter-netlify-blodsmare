@@ -19,6 +19,7 @@ collections:
     create: true,
     identifier_field: name
     fields: [
+    { label: Title, name: title, widget: string},
     { label: Image, name: image, widget: image },
     { label: Alternate Text, name: altText, widget: string },
     {
