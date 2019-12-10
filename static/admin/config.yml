@@ -12,11 +12,15 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - label: "Gallery"
-    name: "galleryImages"
-    widget: "list"
-    files: "/src/cmsData/images.md"
-    fields:
+  - name: "gallery"
+    label: "gallery"
+    folder: "src/galleryData/images"
+    create: true
+    field:
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        fields:
       - { label: Image, name: image, widget: image }
       - { label: Alternate Text, name: altText, widget: string }
       - {
