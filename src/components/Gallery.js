@@ -1,7 +1,6 @@
 import React from "react";
 import posed, { PoseGroup } from "react-pose";
 import styled from "styled-components";
-import getImages from "./queries/GalleryImages";
 import { graphql, useStaticQuery } from "gatsby";
 
 const GalleryStyled = styled.div`
