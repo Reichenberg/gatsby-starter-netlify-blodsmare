@@ -27,4 +27,5 @@ collections:
       name: type,
       widget: select,
       options: ["illustration", "ink"],
-    }]
+    },
+    {label: "Enabled", name: "enabled", widget: "boolean", default: true}]
