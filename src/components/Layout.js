@@ -62,7 +62,7 @@ const TemplateWrapper = ({ children, path }) => {
         ></link>
       </Helmet>
       <Navbar path={path} />
-      <div class="container">{children}</div>
+      <div className="container">{children}</div>
       <Footer />
       <GlobalStyles></GlobalStyles>
     </LayoutStyled>

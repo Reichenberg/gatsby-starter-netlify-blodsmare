@@ -25,7 +25,12 @@ const GalleryStyled = styled.div`
     width: 80%;
     img {
       width: 30%;
+      padding-bottom: 0px;
     }
+  }
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 260px;
   }
 `;
 

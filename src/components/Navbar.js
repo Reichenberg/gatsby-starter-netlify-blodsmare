@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import posed, { PoseGroup } from "react-pose";
+import PropTypes from "prop-types";
 
 const HeadingPosed = posed(Link)({
   enter: {
@@ -129,3 +130,11 @@ export default function Navbar({ path }) {
     </HeaderStyled>
   );
 }
+
+Navbar.propTypes = {
+  path: PropTypes.string
+};
+
+Navbar.defaultProps = {
+  path: "/"
+};
