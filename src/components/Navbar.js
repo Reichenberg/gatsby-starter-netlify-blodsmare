@@ -34,14 +34,17 @@ const HeaderStyled = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 90px;
+  padding-top: ${props => (props.path.trim() === "/" ? "90px" : "40px")};
+  position: fixed;
+  top: 0;
+  z-index: 100;
 
   @media screen and (min-width: 1000px) {
-    padding-top: 140px;
+    padding-top: ${props => (props.path.trim() === "/" ? "140px" : "60px")};
   }
 
   @media screen and (min-width: 1900px) {
-    padding-top: 200px;
+    padding-top: ${props => (props.path.trim() === "/" ? "200px" : "80px")};
   }
   h1 {
     font-family: big-caslon-fb, serif;
@@ -78,7 +81,8 @@ const HeaderStyled = styled.header`
     padding: 0;
     margin: 0;
 
-    padding-top: 40px;
+    padding-top: ${props => (props.path.trim() === "/" ? "40px" : "18px")};
+    padding-bottom: 18px;
 
     @media screen and (min-width: 1000px) {
       font-size: 20px;
@@ -104,7 +108,7 @@ const HeaderStyled = styled.header`
 
 export default function Navbar({ path }) {
   return (
-    <HeaderStyled>
+    <HeaderStyled path={path}>
       <PoseGroup animateOnMount>
         <HeadingPosed key={0} to="/">
           <h1>BLODSMARE</h1>

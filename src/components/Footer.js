@@ -5,8 +5,10 @@ import styled from "styled-components";
 const FooterStyled = styled.footer`
   width: 100vw;
   height: 100px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  z-index: 100;
+  background-color: #ececec;
 
   hr {
     width: 92%;

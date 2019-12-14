@@ -7,7 +7,13 @@ import { withPrefix } from "gatsby";
 import GlobalStyles from "../components/global/global-styles";
 import styled from "styled-components";
 
-const LayoutStyled = styled.div``;
+const LayoutStyled = styled.div`
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
 
 const TemplateWrapper = ({ children, path }) => {
   const { title, description } = useSiteMetadata();
@@ -56,7 +62,7 @@ const TemplateWrapper = ({ children, path }) => {
         ></link>
       </Helmet>
       <Navbar path={path} />
-      <div>{children}</div>
+      <div class="container">{children}</div>
       <Footer />
       <GlobalStyles></GlobalStyles>
     </LayoutStyled>
