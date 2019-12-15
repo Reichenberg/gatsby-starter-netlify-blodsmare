@@ -32,6 +32,24 @@ const FooterStyled = styled.footer`
       padding-top: 10px;
     }
   }
+
+  @media screen and (min-width: 1000px) {
+    height: 120px;
+
+    hr {
+      width: 95%;
+    }
+    ul {
+      padding-left: 70px;
+
+      li {
+        clear: none;
+        padding-top: 40px !important;
+        font-size: 14px;
+        padding-right: 20px;
+      }
+    }
+  }
 `;
 
 const Footer = class extends React.Component {
