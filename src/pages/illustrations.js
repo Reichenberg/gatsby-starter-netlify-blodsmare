@@ -5,7 +5,7 @@ import Gallery from "../components/Gallery";
 export default function illustrations({ location }) {
   return (
     <Layout path={location.pathname}>
-      <Gallery type="illustrations"></Gallery>
+      <Gallery type="illustration"></Gallery>
     </Layout>
   );
 }
