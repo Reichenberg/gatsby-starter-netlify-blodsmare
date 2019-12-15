@@ -5,6 +5,9 @@ import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
 
 const HeadingPosed = posed(Link)({
+  init: {
+    opacity: 0
+  },
   enter: {
     opacity: 1,
     delay: 100,
