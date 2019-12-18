@@ -37,7 +37,7 @@ export default class Index extends React.Component {
     const { location } = this.props;
     return (
       <Layout path={location.pathname}>
-        <section className="section">
+        {/* <section className="section">
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
@@ -49,7 +49,7 @@ export default class Index extends React.Component {
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                {/* The `form-name` hidden field is required to support form submissions without JavaScript 
                 <input type="hidden" name="form-name" value="contact" />
                 <div hidden>
                   <label>
@@ -109,7 +109,7 @@ export default class Index extends React.Component {
               </form>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     );
   }
