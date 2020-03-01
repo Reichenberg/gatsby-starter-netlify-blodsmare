@@ -63,8 +63,6 @@ const Gallery = ({ type }) => {
     `
   );
 
-  console.log(allMarkdownRemark.nodes);
-
   return (
     <GalleryStyled>
       <PoseGroup animateOnMount>

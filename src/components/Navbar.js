@@ -107,6 +107,14 @@ const HeaderStyled = styled.header`
       padding: 5px;
       display: block;
     }
+
+    .hide {
+      opacity: 0;
+    }
+
+    .active {
+      font-weight: 500;
+    }
   }
 `;
 
@@ -114,19 +122,31 @@ export default function Navbar({ path }) {
   return (
     <HeaderStyled path={path}>
       <PoseGroup animateOnMount>
-        <HeadingPosed key={0} to="/">
+        <HeadingPosed key={0} to="/" className="hide">
           <h1>BLODSMARE</h1>
         </HeadingPosed>
 
-        <ListPosed key={1}>
+        <ListPosed key={1} className="hide">
           <li>
-            <Link to="/ink">ink</Link>
+            <Link to="/ink" className={path.includes("ink") ? "active" : ""}>
+              ink
+            </Link>
           </li>
           <li>
-            <Link to="/illustrations">illustrations</Link>
+            <Link
+              to="/illustrations"
+              className={path.includes("illustrations") ? "active" : ""}
+            >
+              illustrations
+            </Link>
           </li>
           <li>
-            <Link to="/contact">contact</Link>
+            <Link
+              to="/contact"
+              className={path.includes("contact") ? "active" : ""}
+            >
+              contact
+            </Link>
           </li>
         </ListPosed>
       </PoseGroup>

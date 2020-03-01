@@ -1,12 +1,46 @@
 import React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import FormInput from "./FormInput";
+import FormTextArea from "./FormTextArea";
 
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 }
+
+const ContactPageStyled = styled.section`
+  min-width: 335px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-family: montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    span {
+      font-size: 18px;
+    }
+  }
+  padding-top: 200px;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 230px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 260px;
+  }
+
+  form {
+    width: 100%;
+  }
+`;
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -37,79 +71,55 @@ export default class Index extends React.Component {
     const { location } = this.props;
     return (
       <Layout path={location.pathname}>
-        {/* <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
-              <form
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript 
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{" "}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={"name"}>
-                    Your name
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={"text"}
-                      name={"name"}
-                      onChange={this.handleChange}
-                      id={"name"}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={"email"}>
-                    Email
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={"email"}
-                      name={"email"}
-                      onChange={this.handleChange}
-                      id={"email"}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={"message"}>
-                    Message
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={"message"}
-                      onChange={this.handleChange}
-                      id={"message"}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
-                  </button>
-                </div>
-              </form>
+        <ContactPageStyled>
+          <h1>
+            based in <span> Oslo, Norway</span>
+          </h1>
+          <form
+            name="contact-me"
+            method="post"
+            action="/contact/thanks/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
+            id="contact-form"
+          >
+            {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+            <input type="hidden" name="form-name" value="contact-me" />
+            <div hidden>
+              <label>
+                Don’t fill this out:{" "}
+                <input name="bot-field" onBlur={this.handleChange} />
+              </label>
             </div>
-          </div>
-        </section> */}
+            <FormInput
+              type="text"
+              name="fullName"
+              onBlur={this.handleChange}
+              required={true}
+              label="Your Name"
+            ></FormInput>
+            <FormInput
+              type="email"
+              name="email"
+              onBlur={this.handleChange}
+              required={true}
+              label="Email"
+            ></FormInput>
+            <FormTextArea
+              name="message"
+              onBlur={this.handleChange}
+              required={true}
+              label="Your Message"
+            ></FormTextArea>
+
+            <div className="field">
+              <button className=" is-link" type="submit">
+                Send
+              </button>
+            </div>
+          </form>
+        </ContactPageStyled>
       </Layout>
     );
   }
