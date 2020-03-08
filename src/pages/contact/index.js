@@ -27,15 +27,6 @@ const ContactPageStyled = styled.section`
       font-size: 18px;
     }
   }
-  padding-top: 200px;
-
-  @media screen and (min-width: 600px) {
-    padding-top: 230px;
-  }
-
-  @media screen and (min-width: 1000px) {
-    padding-top: 260px;
-  }
 
   form {
     width: 100%;
@@ -106,6 +97,7 @@ export default class Index extends React.Component {
               required={true}
               label="Email"
             ></FormInput>
+            <input type="file" id="input"></input>
             <FormTextArea
               name="message"
               onBlur={this.handleChange}

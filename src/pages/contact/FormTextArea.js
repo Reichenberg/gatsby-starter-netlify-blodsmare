@@ -7,7 +7,6 @@ const InputStyled = styled.div`
   position: relative;
   margin-top: 15px;
   background-color: #ffffff;
-  height: 50px;
 
   textarea {
     border: none;

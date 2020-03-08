@@ -12,6 +12,14 @@ const LayoutStyled = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 200px;
+
+    @media screen and (min-width: 600px) {
+      padding-top: 230px;
+    }
+    @media screen and (min-width: 1000px) {
+      padding-top: 260px;
+    }
   }
 `;
 

@@ -8,7 +8,6 @@ const GalleryStyled = styled.div`
   width: 100vw;
   flex-direction: column;
   align-items: center;
-  padding-top: 200px;
 
   img {
     border-radius: 2px;
@@ -17,8 +16,6 @@ const GalleryStyled = styled.div`
   }
 
   @media screen and (min-width: 600px) {
-    padding-top: 230px;
-
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -27,10 +24,6 @@ const GalleryStyled = styled.div`
       width: 30%;
       padding-bottom: 0px;
     }
-  }
-
-  @media screen and (min-width: 1000px) {
-    padding-top: 260px;
   }
 `;
 
