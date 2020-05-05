@@ -43,6 +43,11 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleFileUpload = e => {
+    console.log(e.target.value);
+    this.setState({ [e.target.name]: e.target.files[0] });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -79,7 +84,7 @@ export default class Index extends React.Component {
             <input type="hidden" name="form-name" value="contact-me" />
             <div hidden>
               <label>
-                Don’t fill this out:{" "}
+                Don’t fill this out:
                 <input name="bot-field" onBlur={this.handleChange} />
               </label>
             </div>
@@ -101,7 +106,8 @@ export default class Index extends React.Component {
               type="file"
               name="example-image"
               id="input"
-              onBlur={this.handleChange}
+              onBlur={this.handleFileUpload}
+              accept=".jpg, .jpeg, .png"
             ></input>
             <FormTextArea
               name="message"
@@ -111,7 +117,7 @@ export default class Index extends React.Component {
             ></FormTextArea>
 
             <div className="field">
-              <button className=" is-link" type="submit">
+              <button className="is-link" type="submit">
                 Send
               </button>
             </div>
