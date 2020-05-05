@@ -1,7 +1,7 @@
 import React from "react";
-import posed, { PoseGroup } from "react-pose";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
+import { motion } from "framer-motion";
 
 const GalleryStyled = styled.div`
   display: flex;
@@ -27,16 +27,6 @@ const GalleryStyled = styled.div`
   }
 `;
 
-const ImagePosed = posed.img({
-  enter: {
-    opacity: 1,
-    delay: 200
-  },
-  exit: {
-    opacity: 0
-  }
-});
-
 const Gallery = ({ type }) => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
@@ -58,17 +48,18 @@ const Gallery = ({ type }) => {
 
   return (
     <GalleryStyled>
-      <PoseGroup animateOnMount>
-        {allMarkdownRemark.nodes
-          .filter(item => item.frontmatter.type === type)
-          .map((item, index) => (
-            <ImagePosed
-              src={item.frontmatter.image}
-              alt={item.frontmatter.altText}
-              key={index}
-            />
-          ))}
-      </PoseGroup>
+      {allMarkdownRemark.nodes
+        .filter(item => item.frontmatter.type === type)
+        .map((item, index) => (
+          <motion.img
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+            src={item.frontmatter.image}
+            alt={item.frontmatter.altText}
+            key={index}
+          />
+        ))}
     </GalleryStyled>
   );
 };

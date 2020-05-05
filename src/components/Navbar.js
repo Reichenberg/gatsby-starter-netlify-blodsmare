@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
 const HeadingPosed = posed(Link)({
   init: {
@@ -61,19 +62,19 @@ const HeaderStyled = styled.header`
     margin: 0;
 
     @media screen and (min-width: 601px) {
-      font-size: 36px;
+      font-size: 34px;
     }
 
     @media screen and (min-width: 1000px) {
-      font-size: 48px;
+      font-size: 44px;
     }
 
     @media screen and (min-width: 1400px) {
-      font-size: 56px;
+      font-size: 50px;
     }
 
     @media screen and (min-width: 1900px) {
-      font-size: 76px;
+      font-size: 70px;
     }
   }
 
@@ -108,10 +109,6 @@ const HeaderStyled = styled.header`
       display: block;
     }
 
-    .hide {
-      opacity: 0;
-    }
-
     .active {
       font-weight: 500;
     }
@@ -121,35 +118,43 @@ const HeaderStyled = styled.header`
 export default function Navbar({ path }) {
   return (
     <HeaderStyled path={path}>
-      <PoseGroup animateOnMount>
-        <HeadingPosed key={0} to="/" className="hide">
-          <h1>BLODSMARE</h1>
-        </HeadingPosed>
+      <Link to="/">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          BLODSMARE
+        </motion.h1>
+      </Link>
 
-        <ListPosed key={1} className="hide">
-          <li>
-            <Link to="/ink" className={path.includes("ink") ? "active" : ""}>
-              ink
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/illustrations"
-              className={path.includes("illustrations") ? "active" : ""}
-            >
-              illustrations
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className={path.includes("contact") ? "active" : ""}
-            >
-              contact
-            </Link>
-          </li>
-        </ListPosed>
-      </PoseGroup>
+      <motion.ul
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <li>
+          <Link to="/ink" className={path.includes("ink") ? "active" : ""}>
+            ink
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/illustrations"
+            className={path.includes("illustrations") ? "active" : ""}
+          >
+            illustrations
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/contact"
+            className={path.includes("contact") ? "active" : ""}
+          >
+            contact
+          </Link>
+        </li>
+      </motion.ul>
     </HeaderStyled>
   );
 }

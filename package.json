@@ -5,7 +5,7 @@
   "author": "Austin Green",
   "dependencies": {
     "bulma": "^0.8.0",
-    "framer-motion": "^1.8.4",
+    "framer-motion": "^1.10.3",
     "gatsby": "^2.18.11",
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-netlify": "^2.0.6",
