@@ -97,7 +97,12 @@ export default class Index extends React.Component {
               required={true}
               label="Email"
             ></FormInput>
-            <input type="file" name="example-image" id="input"></input>
+            <input
+              type="file"
+              name="example-image"
+              id="input"
+              onBlur={this.handleChange}
+            ></input>
             <FormTextArea
               name="message"
               onBlur={this.handleChange}
