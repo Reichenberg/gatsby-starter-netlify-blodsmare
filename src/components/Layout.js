@@ -8,17 +8,19 @@ import GlobalStyles from "../components/global/global-styles";
 import styled from "styled-components";
 
 const LayoutStyled = styled.div`
+  overflow: hidden;
   .container {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding-top: 200px;
+    width: 100vw;
 
     @media screen and (min-width: 600px) {
-      padding-top: 230px;
+      padding-top: 240px;
     }
     @media screen and (min-width: 1000px) {
-      padding-top: 260px;
+      padding-top: 240px;
     }
   }
 `;
